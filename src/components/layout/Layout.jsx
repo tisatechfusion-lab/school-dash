@@ -13,7 +13,7 @@ export default function DashboardLayout() {
 
       <div className="flex-1 flex flex-col pt-6 pr-6 pb-6">
 
-        <div className="h-[60px] bg-white shadow rounded-xl px-6 flex items-center mb-8">
+        <div>
           <Navbar />
         </div>
 

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../components/layout/Layout";
-// import Dashboard from "../pages/Dashboard";
+import Students from "../pages/students/Students";
 
 
 export default function AppRoutes() {
@@ -12,6 +12,7 @@ export default function AppRoutes() {
 
           {/* <Route index element={<Dashboard />} /> */}
           {/* <Route path="students" element={<Students />} /> */}
+          <Route path='/students' element={<Students />} />
 
         </Route>
 
