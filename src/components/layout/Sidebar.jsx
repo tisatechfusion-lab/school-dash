@@ -1,192 +1,140 @@
 import { NavLink } from "react-router-dom";
-import { LayoutDashboard, Menu, GraduationCap,User,UserStar,CalendarCheck,LayoutList,NotepadText,UserCog 
-  ,BadgeIndianRupee,
-  } from "lucide-react"
+import dashboard from '../../assets/icons/sidebar/Dashboard.svg'
+import student from '../../assets/icons/sidebar/Student.svg'
+import staff from '../../assets/icons/sidebar/Staffs.svg'
+import academic from '../../assets/icons/sidebar/Academic.svg'
+import attendance from '../../assets/icons/sidebar/Attendance.svg'
+import facilities from '../../assets/icons/sidebar/Facilities.svg'
+import leave from '../../assets/icons/sidebar/Leaveapplication.svg'
+import management from '../../assets/icons/sidebar/Management.svg'
+import finance from '../../assets/icons/sidebar/Finance.svg'
+import inventory from '../../assets/icons/sidebar/Inventory.svg'
+import records from '../../assets/icons/sidebar/Records.svg'
+import aboutshcool from '../../assets/icons/sidebar/AboutSchool.svg'
+import setting from '../../assets/icons/sidebar/Setting.svg'
+import helpcenter from '../../assets/icons/sidebar/HelpCenter.svg'
+import logout from '../../assets/icons/sidebar/LogOut.svg'
+import '../../styles/sidebar.css';
+import SVG from "react-inlinesvg";
 
 export default function Sidebar() {
+  const navLinkClass = ({ isActive }) =>
+    `flex items-center gap-3.5 px-3 py-2 rounded-lg
+     ${isActive ? "bg-active-bg text-primary-500" : "hover:bg-gray-200"}`;
+
   return (
-    <div className="w-[330px] h-full bg-sidebar rounded-xl p-4 flex flex-col">
+    <div className="sidebar w-[330px] h-full bg-sidebar rounded-xl p-4 flex flex-col">
+
 
       <div className="flex items-center justify-between mb-6">
-
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center text-white font-bold">
-            <GraduationCap size={32}/>
+          <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center text-white">
+            <img src={academic} alt="sidemenu" />
           </div>
 
-          <div className="font-semibold">
-            <span className="text-lg text-primary-600">ScholerPro</span>{" "}
-            <p className="text-xs text-primary-700">Adminpanel</p>
+          <div>
+            <h1 className="text-lg font-bold text-primary-500 pb-0">
+             E - Tara
+            </h1>
+            <p className="text-md text-primary-500 pt-0">School Management</p>
           </div>
         </div>
 
-        <button className="p-2 rounded-md hover:bg-gray-100">
+        {/* <button className="p-2 hover:bg-gray-100 rounded-md">
           <Menu size={20} />
-        </button>
+        </button> */}
       </div>
 
-      <div className="border-b border-gray-200 mb-4"></div>
+      <div className="border-b mb-4"></div>
 
-      <nav className="flex flex-col gap-2">
+      <nav className="nav-link flex flex-col gap-2 ">
 
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">Dashboard</span>
+        <NavLink to="/" className={navLinkClass}>
+        <SVG src={dashboard} alt="link"/>
+          Dashboard
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <User  size={18}/>
-          <span className="text-[16px] font-medium">Student</span>
+
+        <NavLink to="/students" className={navLinkClass}>
+          <img src={student} alt="" className="text" />
+           Students
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <UserStar size={18} />
-          <span className="text-[16px] font-medium">Staffs</span>
+
+        <NavLink to="/staffs" className={navLinkClass}>
+          <img src={staff} alt="" />
+          Staffs
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <GraduationCap size={18} />
-          <span className="text-[16px] font-medium">Academic</span>
+
+        <NavLink to="/academic" className={navLinkClass}>
+          <img src={academic} alt="" />
+           Academic
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <CalendarCheck size={18} />
-          <span className="text-[16px] font-medium">Attendance</span>
+
+        <NavLink to="/attendance" className={navLinkClass}>
+          <img src={attendance} alt="" />
+          Attendance
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutList  size={18} />
-          <span className="text-[16px] font-medium">Facilities</span>
+
+        <NavLink to="/facilities" className={navLinkClass}>
+          <img src={facilities} alt="" />
+           Facilities
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <NotepadText  size={18} />
-          <span className="text-[16px] font-medium">Leave Application</span>
+
+
+        <NavLink to="/leave-application" className={navLinkClass}>
+          <img src={leave} alt="" />
+           Leave Application
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <UserCog size={18} />
-          <span className="text-[16px] font-medium">Management</span>
+
+        <NavLink to="/management" className={navLinkClass}>
+          <img src={management} alt="" />
+           Management
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <BadgeIndianRupee size={18} />
-          <span className="text-[16px] font-medium">Finance</span>
+
+        <NavLink to="/finance" className={navLinkClass}>
+          <img src={finance} alt="" />
+           Finance
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">Inventory</span>
+
+        <NavLink to="/inventory" className={navLinkClass}>
+          <img src={inventory} alt="" />
+          Inventory
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">Records</span>
+
+        <NavLink to="/records" className={navLinkClass}>
+          <img src={records} alt="" />
+          Records
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">About School</span>
+
+        <NavLink to="/about-school" className={navLinkClass}>
+          <img src={aboutshcool} alt="" />
+           About School
         </NavLink>
-        <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">Setting</span>
+
+        <NavLink to="/setting" className={navLinkClass}>
+          <img src={setting} alt="" />
+           Setting
         </NavLink>
-        
-      <div className="mt-auto">
-        <div className="bg-white rounded-xl shadow-sm">
-          <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">Setting</span>
-        </NavLink>
-          <NavLink
-          to="/students"
-          className={({ isActive }) =>
-            `flex items-center gap-3.5 px-3 py-2 rounded-lg text-text-main
-            ${isActive ? "bg-active-bg" : "hover:bg-gray-100"}`
-          }
-        >
-          <LayoutDashboard size={18} />
-          <span className="text-[16px] font-medium">Setting</span>
-        </NavLink>
+
+
+        <div className="mt-auto pt-4">
+          <div className="bg-white rounded-xl py-3 shadow-md">
+
+            <NavLink to="/help-center" className={navLinkClass}>
+               <img src={helpcenter} alt="" />
+               Help Center
+            </NavLink>
+
+            <NavLink to="/logout" className={navLinkClass}>
+              <span className="text-red-500">
+                <img src={logout} alt="" />
+                Logout
+                </span>
+            </NavLink>
+
+          </div>
         </div>
-       </div>
 
       </nav>
-
     </div>
   );
 }
